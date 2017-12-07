@@ -1,0 +1,43 @@
+<div *ngIf="articles">
+  <div *ngFor="let article of articles; let i = index" class="post">
+    <div class="post-header">
+      <span id="protractor15" class="author">{{article.author}}</span>
+      <span class="date">{{article.date}}</span>
+    </div>
+    <img *ngIf="article.image && article.image!=='' " class="img-responsive" src={{article.image}} alt="Photo Not Found">
+    <div id="protractor4" class="article-content" attr.contenteditable={{editable[i]}}>
+    	<!-- <textarea name="Text1" cols="100%" rows="5" readonly>{{article.text}}</textarea> -->
+      {{article.text}}
+	  </div>
+    <div class="fonter" *ngIf="editable[i]">
+      <a class="btn btn-danger btn-xs" (click)="delete(i)">
+        <span class="glyphicon glyphicon-trash"></span> Delete Article</a>
+      <label class="btn btn-info btn-xs">
+        <<span class="glyphicon glyphicon-picture"></span> Update Image
+        <input type="file" accept="image/*" name='image' (change)="upload(i, $event)" hidden/>
+      </label>
+    </div>
+    <div class="fonter">
+      <span>{{article.like}} <span style="font-style:italic; color: #9c27b0;">Likes</span> </span>
+      <a class="btn btn-primary btn-round" (click)="like(article)">
+        <span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
+      <a class="btn btn-primary btn-round" (click)="comment(i)">
+        <span class="glyphicon glyphicon-comment"></span> Comment</a>
+      <a class="btn btn-primary btn-round">
+        <span class="glyphicon glyphicon-share-alt"></span> Share</a>
+      <a id="protractor5" class="btn btn-primary btn-round edit" (click)="edit(i)">
+        <span class="glyphicon glyphicon-edit"></span> Edit</a>
+      <a class="btn btn-primary btn-round save" (click)="save(i)" hidden>
+        <span class="glyphicon glyphicon-check"></span> Save</a>
+      <div class="comment" *ngIf="commentable[i]">
+        <div *ngFor="let com of article.comments; let j = index">
+          <label>{{com.author}}:</label><br>
+          <label *ngIf="com.author!==user.username">{{com.text}}</label>
+          <input #box type="text" *ngIf="com.author===user.username" class="commentInput" name="comment" [(ngModel)]="com.text" value={{com.text}} (keyup.enter)="updateComment(i,j,box.value)">
+        </div>
+        <label>New Comment</label>
+        <input #box type="text" class="commentInput" name="comment" [(ngModel)]="newComment" (keyup.enter)="updateComment(i, -1, box.value)">
+      </div>
+
+    </div>
+  </div>

@@ -1,0 +1,106 @@
+<div class="form-container">
+  <nav class="navbar navbar-expand-lg bg-primary fixed-top" style="background-color:#5fb95d">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand">
+                Rice Book
+          </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="toSignUp()" class="btn"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a (click)="toLogin()" class="btn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a (click)="loginWithFb()" class="btn">Log In with Facebook</a>
+        </li>
+<!--         <li><a href="/login/facebook">Log In with Facebook</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+  <div *ngIf="mode" name="registerForm">
+    <form class="form" [formGroup]="userForm" #formDir="ngForm">
+      <div class="header">
+        SIGN UP
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput id="protractor1" formControlName="username" type="text" placeholder="Account Name" required>
+          <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+            Account Name is required.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor2" type="text" formControlName="displayName" placeholder="Display Name">
+          <mat-error *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)">
+            Display Name is invalid.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor3" formControlName="email" type="text" placeholder="Enter your email" required>
+          <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+            Email address is invalid.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor4" type="text" formControlName="phone" placeholder="phone number(123-123-1234)" required>
+          <mat-error *ngIf="phone.invalid && (email.dirty || email.touched)">Phone number is invalid.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor5"  [matDatepicker]="picker" [max]="maxDate" placeholder="Birthday" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="birth.invalid && (birth.dirty || birth.touched)">Birthday is invalid.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type="text" matInput id="protractor6" formControlName="zipcode" placeholder="Zipcode" required>
+          <mat-error *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)">Zipcode is invalid.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor7" type="password" formControlName="password" placeholder="Password(a-a-a)" required>
+          <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password is invalid.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput id="protractor8" type="password" formControlName="confirmPassword" placeholder="Confirm Password" required>
+          <mat-error *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">Password doesn't match.</mat-error>
+        </mat-form-field>
+        <br>
+        <button id="protractor9"  class="btn btn-success btn-round" [disabled]="userForm.invalid" (click)="onSubmit()">Register</button>
+        <button class="btn btn-success btn-round" (click)="userForm.reset()">Clear</button>
+        <a  id="protractor14" (click)="toLogin()"class="btn btn-primary btn-round">Already have an Account?</a>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="!mode" name="loginForm">
+    <form class="form" [formGroup]="loginForm" #formDir="ngForm">
+      <div class="header">
+        Login in
+      </div>
+      <p>[Test Account] Name:ab12 Pwd:abc-abc-abc</p>
+      <div>
+        <mat-form-field>
+          <input matInput type="text" id="protractor10" formControlName="account" placeholder="Account Name" required>
+          <mat-error *ngIf="account.invalid && (account.dirty || account.touched)">Acccount name must be entered.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput type="password" id="protractor11" formControlName="pwd" placeholder="Password" required>
+          <mat-error *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">Password must be entered.</mat-error>
+        </mat-form-field>
+        <p class="pwd-error" *ngIf="pwdError">Wrong password!</p>
+        <br>
+        <br>
+        <button type="submit" id="protractor12" class="btn btn-primary btn-round" [disabled]="loginForm.invalid" (click)="login()">
+          <span class="glyphicon glyphicon-log-in"></span> Log in</button>
+        <br>
+        <a id="protractor13" class="btn btn-primary btn-round" (click)="toSignUp()">
+          <span class="glyphicon glyphicon-user"></span> Create an Account?</a>
+      </div>
+    </form>
+  </div>
+</div>

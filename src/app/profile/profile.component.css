@@ -1,0 +1,46 @@
+.row {
+	width: 100%;
+	text-align: center;
+}
+
+.mycol {
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	/*margin-right: 50px;*/
+	padding: 20px;
+	background-color:#c2dbf3;
+	text-align: center;
+}
+
+/*.mycol-left{
+	margin-left: 200px;
+}
+
+.mycol-right{
+	margin-right: 200px;
+}*/
+
+.component {
+	width: 80%;
+    margin: auto;
+    padding: 10px;
+    text-align: left;
+}
+
+.infoWrapper{
+	margin-bottom: 0px;
+	margin-top: 0px;
+	background-color: #e2f9e2;
+}
+
+.info {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+[hidden] {
+  display: none !important;
+}

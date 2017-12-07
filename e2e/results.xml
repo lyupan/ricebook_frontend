@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Rice Book E2E Test " timestamp="2017-11-16T20:28:15" hostname="localhost" time="11.094" errors="0" tests="11" skipped="0" disabled="0" failures="0">
+  <testcase classname="Rice Book E2E Test " name="should be able to register a new user" time="4.306" />
+  <testcase classname="Rice Book E2E Test " name="should login as test user" time="2.623" />
+  <testcase classname="Rice Book E2E Test " name="Create new article and validate article appears in feed" time="0.663" />
+  <testcase classname="Rice Book E2E Test " name="Edit an article and validate changed article text" time="0.505" />
+  <testcase classname="Rice Book E2E Test " name="Update headline headline and verify change" time="0.436" />
+  <testcase classname="Rice Book E2E Test " name="Add a Follower user and verify following count increases by one" time="0.423" />
+  <testcase classname="Rice Book E2E Test " name="Remove the Follower user and verify following count decreases by one" time="0.203" />
+  <testcase classname="Rice Book E2E Test " name="Search for Only One Article Like This and verify only one article shows, and verify the author" time="0.454" />
+  <testcase classname="Rice Book E2E Test " name="Navigate to the profile view, Update the users email and verify" time="0.627" />
+  <testcase classname="Rice Book E2E Test " name="Update the users zipcode and verify" time="0.327" />
+  <testcase classname="Rice Book E2E Test " name="Update the users password and verify" time="0.523" />
+ </testsuite>
+</testsuites>
